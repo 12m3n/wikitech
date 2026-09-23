@@ -8,10 +8,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
 };
 
-function Tbc({ children }: { children: React.ReactNode }) {
-  return <span className="tbc">[{children}]</span>;
-}
-
 export default function TermsPage() {
   return (
     <LegalPage
@@ -95,8 +91,10 @@ export default function TermsPage() {
 
       <h2>Governing law</h2>
       <p>
-        These terms are governed by the laws of <Tbc>governing jurisdiction to be confirmed</Tbc>,
-        and disputes are subject to the exclusive jurisdiction of its courts.
+        These terms are governed by the law of the jurisdiction in which {site.name} is
+        established, and any dispute arising out of them is subject to the exclusive jurisdiction of
+        its courts. Nothing here affects mandatory rights you may have under the law of your own
+        country of residence.
       </p>
 
       <h2>Changes</h2>

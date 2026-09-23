@@ -27,7 +27,7 @@ export function CaseStudiesSection() {
         <SectionHeader
           eyebrow="Selected work"
           title="Engagements, described by their shape."
-          lead="These are real engagement profiles. Client names and quantified results are withheld until each is cleared for publication — we would rather show you the work than a number you cannot verify."
+          lead="Real engagements, described by their shape rather than by client name. We would rather show you how the work was actually done than a percentage you have no way to check."
         />
 
         <Reveal delay={60}>

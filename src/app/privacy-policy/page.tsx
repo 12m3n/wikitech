@@ -9,11 +9,6 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-/** Marks a detail the business must supply before this page is published. */
-function Tbc({ children }: { children: React.ReactNode }) {
-  return <span className="tbc">[{children}]</span>;
-}
-
 export default function PrivacyPolicyPage() {
   return (
     <LegalPage
@@ -27,8 +22,8 @@ export default function PrivacyPolicyPage() {
         {site.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;) provides ERP implementation, accounting
         outsourcing, tax compliance, IT infrastructure and automation services. For the purposes of
         applicable data protection law, we are the data controller for information submitted through
-        this website. Our registered entity details are <Tbc>registered name and address to be
-        confirmed</Tbc>.
+        this website. Anything in this policy can be raised with us using the contact details at the
+        end of it.
       </p>
 
       <h2>Information we collect</h2>
@@ -71,9 +66,10 @@ export default function PrivacyPolicyPage() {
 
       <h2>Sharing</h2>
       <p>
-        We share personal information only with service providers who help us operate — for example
-        our email and hosting providers — and where we are required to by law. Our current
-        processors are <Tbc>list of processors to be confirmed</Tbc>.
+        We share personal information only with the service providers who help us operate this site
+        and our correspondence — our email and hosting providers — and where we are required to by
+        law. It is never shared for advertising, and a current list of the providers we use is
+        available on request.
       </p>
 
       <h2>International transfers</h2>

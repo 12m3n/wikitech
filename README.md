@@ -119,14 +119,15 @@ headcounts appear anywhere on this site, because none were supplied. Two consequ
 |---|---|
 | `src/data/site.ts` | `url` is `https://wikitechgroup.com` — set the real domain (used by canonical URLs, sitemap, OG tags). |
 | `src/data/site.ts` | `email` is the address from the project brief (a Gmail address). A domain mailbox would read as more credible to enterprise buyers. |
-| `src/app/privacy-policy/page.tsx` | Registered entity name and address; list of processors. Marked inline with `<Tbc>`. |
-| `src/app/terms/page.tsx` | Governing jurisdiction. Marked inline with `<Tbc>`. |
+| `src/app/privacy-policy/page.tsx` | Optional: name the registered entity and list the processors explicitly. The page reads complete without them — it points to the contact details and offers the processor list on request. |
+| `src/app/terms/page.tsx` | Name the governing jurisdiction. It currently reads "the jurisdiction in which Wikitech Group is established", which is valid but weaker than naming it outright. |
 | `src/app/contact/page.tsx` | Phone, address and office hours — an HTML comment marks the spot. |
 | `src/components/sections/LeadershipSection.tsx` | Optional: a short statement from the owner, where the HTML comment marks it. Nothing is written on his behalf. |
 | `src/app/about/page.tsx` | Team bios, formation date, registrations — an HTML comment marks the spot. |
 
-The `<Tbc>` markers render as a small highlighted note, so unfinished legal details are
-visible rather than silently wrong.
+None of the legal copy asserts a fact that has not been supplied. Where a specific —
+a registered address, a named jurisdiction — was unavailable, the sentence is written so
+it is complete and accurate without it, rather than left as a visible placeholder.
 
 ---
 
