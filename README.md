@@ -122,7 +122,7 @@ headcounts appear anywhere on this site, because none were supplied. Two consequ
 | `src/app/privacy-policy/page.tsx` | Registered entity name and address; list of processors. Marked inline with `<Tbc>`. |
 | `src/app/terms/page.tsx` | Governing jurisdiction. Marked inline with `<Tbc>`. |
 | `src/app/contact/page.tsx` | Phone, address and office hours — an HTML comment marks the spot. |
-| `src/components/sections/LeadershipSection.tsx` | The owner's full name, shown as a `<span class="tbc">` placeholder. A short statement from them can go where the HTML comment marks it — nothing is written on their behalf. |
+| `src/components/sections/LeadershipSection.tsx` | Optional: a short statement from the owner, where the HTML comment marks it. Nothing is written on his behalf. |
 | `src/app/about/page.tsx` | Team bios, formation date, registrations — an HTML comment marks the spot. |
 
 The `<Tbc>` markers render as a small highlighted note, so unfinished legal details are

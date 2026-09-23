@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SectionHeader } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
@@ -7,10 +7,14 @@ import { images } from "@/data/images";
 import { site } from "@/data/site";
 
 /**
- * Everything here restates commitments made elsewhere on the site — the single
- * line of accountability, blueprint-through-hypercare, the three tax regimes.
- * Nothing about the person is invented: the name is a marked placeholder and
- * there is no biography or quotation until the client supplies one.
+ * Sits second, straight after the hero, so the claim the hero makes — one
+ * accountable partner — is paid off by a name and a face before any capability
+ * is listed.
+ *
+ * The three points restate commitments made elsewhere on the site: the single
+ * engagement, blueprint-through-hypercare, the three tax regimes. Nothing about
+ * the person beyond name and role is stated, and no biography or quotation is
+ * written on his behalf.
  */
 const commitments = [
   {
@@ -34,12 +38,12 @@ export function LeadershipSection() {
   const portrait = images["team/owner"];
 
   return (
-    <section id="leadership" className="section scroll-mt-24 border-b border-line bg-canvas">
+    <section id="leadership" className="section scroll-mt-24 border-b border-line bg-surface">
       <div className="shell">
         <SectionHeader
           eyebrow="Leadership"
           title="The person accountable for the work."
-          lead="A single line of accountability is easy to put in a proposal and harder to staff. It is the commitment this firm is built on, so it belongs with a name against it rather than buried in a capability list."
+          lead="A single line of accountability is easy to put in a proposal and harder to staff. It is the commitment this firm is built on, so it belongs at the top of the page with a name against it — not buried on an about page."
         />
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-center lg:gap-16">
@@ -53,7 +57,7 @@ export function LeadershipSection() {
               />
               <Image
                 src={portrait.src}
-                alt="Portrait of the owner of Wikitech Group"
+                alt="Muhammad Waqas Arshad, Owner of Wikitech Group"
                 width={portrait.width}
                 height={portrait.height}
                 sizes="(max-width: 1024px) 19rem, 30vw"
@@ -62,10 +66,7 @@ export function LeadershipSection() {
             </div>
 
             <div className="mt-5">
-              <p className="text-display-sm leading-tight">
-                {/* Replace with the owner's full name. */}
-                <span className="tbc">Full name to be confirmed</span>
-              </p>
+              <p className="text-display-sm leading-tight">Muhammad Waqas Arshad</p>
               <p className="mt-2 font-mono text-[0.75rem] uppercase tracking-[0.1em] text-brand-600">
                 Owner · {site.name}
               </p>
@@ -103,14 +104,15 @@ export function LeadershipSection() {
               nothing is written on their behalf in the meantime.
             */}
 
-            <Reveal delay={220} className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/#quote" size="lg">
-                Book a consultation
+            {/*
+              This sits directly beneath the hero, which already carries the
+              primary CTA — so the action here moves the reader on rather than
+              repeating "Book a Consultation" twice within a screen.
+            */}
+            <Reveal delay={220} className="mt-8">
+              <Button href="/#services" variant="secondary" size="lg">
+                See what that covers
                 <ArrowRight className="h-4 w-4" aria-hidden />
-              </Button>
-              <Button href={`mailto:${site.email}`} variant="secondary" size="lg">
-                <Mail className="h-4 w-4" aria-hidden />
-                Email directly
               </Button>
             </Reveal>
           </div>

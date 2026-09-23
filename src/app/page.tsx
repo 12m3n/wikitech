@@ -33,6 +33,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <LeadershipSection />
       <ServiceSelector />
       <ErpSection />
       <InfrastructureSection />
@@ -43,7 +44,6 @@ export default function HomePage() {
       <ForecastingSection />
       <MarketingSection />
       <WhyUsSection />
-      <LeadershipSection />
       <CaseStudiesSection />
       <QuoteBuilder />
       <FinalCta />
