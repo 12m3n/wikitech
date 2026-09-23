@@ -69,78 +69,87 @@ export function SiteHeader() {
   };
 
   return (
-    <header
-      ref={headerRef}
-      className="site-header sticky top-0 z-50 border-b border-transparent bg-canvas transition-[background-color,border-color,box-shadow] duration-300"
-      style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
-    >
-      <div className="shell flex h-[4.25rem] items-center justify-between gap-6">
-        <Link
-          href="/"
-          aria-label={`Wikitech Group — home`}
-          className="-ml-1 shrink-0 rounded-md px-1 py-1 transition-opacity hover:opacity-80"
-        >
-          <WikitechLogo />
-        </Link>
+    <>
+      <header
+        ref={headerRef}
+        className="site-header sticky top-0 z-50 border-b border-transparent bg-canvas transition-[background-color,border-color,box-shadow] duration-300"
+        style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
+      >
+        <div className="shell flex h-[4.25rem] items-center justify-between gap-6">
+          <Link
+            href="/"
+            aria-label={`Wikitech Group — home`}
+            className="-ml-1 shrink-0 rounded-md px-1 py-1 transition-opacity hover:opacity-80"
+          >
+            <WikitechLogo />
+          </Link>
 
-        <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-0.5">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={isActive(item.href) ? "true" : undefined}
-                  className={cn(
-                    "relative whitespace-nowrap rounded-md px-2.5 py-2 text-[0.8125rem] font-medium transition-colors duration-200 xl:px-3",
-                    isActive(item.href)
-                      ? "text-brand-700"
-                      : "text-body hover:bg-surface hover:text-ink",
-                  )}
-                >
-                  {item.label}
-                  <span
-                    aria-hidden
+          <nav aria-label="Primary" className="hidden lg:block">
+            <ul className="flex items-center gap-0.5">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={isActive(item.href) ? "true" : undefined}
                     className={cn(
-                      "absolute inset-x-2.5 -bottom-px h-0.5 origin-left rounded-full bg-brand-700 transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)]",
-                      isActive(item.href) ? "scale-x-100" : "scale-x-0",
+                      "relative whitespace-nowrap rounded-md px-2.5 py-2 text-[0.8125rem] font-medium transition-colors duration-200 xl:px-3",
+                      isActive(item.href)
+                        ? "text-brand-700"
+                        : "text-body hover:bg-surface hover:text-ink",
                     )}
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+                  >
+                    {item.label}
+                    <span
+                      aria-hidden
+                      className={cn(
+                        "absolute inset-x-2.5 -bottom-px h-0.5 origin-left rounded-full bg-brand-700 transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)]",
+                        isActive(item.href) ? "scale-x-100" : "scale-x-0",
+                      )}
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 lg:flex">
-          {/* Both CTAs plus the full nav overflow at 1024 — the secondary one
-              returns once there is room for it. */}
-          <span className="hidden xl:block">
-            <Button href="/contact" variant="secondary" size="md">
-              Contact
+          <div className="hidden shrink-0 items-center gap-2 lg:flex">
+            {/* Both CTAs plus the full nav overflow at 1024 — the secondary one
+                returns once there is room for it. */}
+            <span className="hidden xl:block">
+              <Button href="/contact" variant="secondary" size="md">
+                Contact
+              </Button>
+            </span>
+            <Button href="/#quote" size="md">
+              Book a Consultation
             </Button>
-          </span>
-          <Button href="/#quote" size="md">
-            Book a Consultation
-          </Button>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink transition-colors hover:bg-surface lg:hidden"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
+      </header>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink transition-colors hover:bg-surface lg:hidden"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
-      </div>
 
-      {/* Mobile panel — a full sheet with large targets, not a squeezed desktop nav. */}
+      {/*
+        Mobile panel — a full sheet with large targets, not a squeezed desktop nav.
+        It is a sibling of <header>, not a child: once scrolled the header carries
+        `backdrop-filter`, and a filtered element becomes the containing block for
+        its position:fixed descendants, which collapsed this panel to a 1px strip.
+      */}
       <div
         id="mobile-nav"
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-[4.25rem] z-50 overflow-y-auto border-t border-line bg-canvas lg:hidden"
+        style={{ top: "calc(4.25rem + env(safe-area-inset-top, 0px))" }}
+        className="fixed inset-x-0 bottom-0 z-50 overflow-y-auto border-t border-line bg-canvas lg:hidden"
       >
         <nav aria-label="Primary mobile" className="shell py-4">
           <ul className="divide-y divide-line">
@@ -167,6 +176,6 @@ export function SiteHeader() {
           </div>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
