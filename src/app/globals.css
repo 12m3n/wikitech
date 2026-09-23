@@ -236,14 +236,16 @@
     text-decoration: underline;
     text-underline-offset: 3px;
   }
-  /* Marks a detail the business still has to supply before publication. */
-  .legal .tbc {
+  /* Marks a detail the business still has to supply before publication.
+     Used in the legal pages and beside the leadership portrait. */
+  .tbc {
     border-radius: var(--radius-xs);
     background: var(--color-signal-50);
     padding: 0.05em 0.4em;
     color: #7a5310;
     font-family: var(--font-mono);
     font-size: 0.8125rem;
+    font-weight: 500;
   }
 }
 

@@ -9,6 +9,7 @@ import { AiSection } from "@/components/sections/AiSection";
 import { ForecastingSection } from "@/components/sections/ForecastingSection";
 import { MarketingSection } from "@/components/sections/MarketingSection";
 import { WhyUsSection } from "@/components/sections/WhyUsSection";
+import { LeadershipSection } from "@/components/sections/LeadershipSection";
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { QuoteBuilder } from "@/components/sections/QuoteBuilder";
 import { FinalCta } from "@/components/sections/FinalCta";
@@ -42,6 +43,7 @@ export default function HomePage() {
       <ForecastingSection />
       <MarketingSection />
       <WhyUsSection />
+      <LeadershipSection />
       <CaseStudiesSection />
       <QuoteBuilder />
       <FinalCta />

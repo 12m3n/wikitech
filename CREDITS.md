@@ -46,6 +46,7 @@ card images are otherwise unmodified.
 | `service/integrations` | https://www.pexels.com/photo/4487383/ |
 | `service/marketing` | https://www.pexels.com/photo/6476590/ |
 | `service/tax` | https://www.pexels.com/photo/8872719/ |
+| `team/owner` | supplied by the client (`Owner.jpeg`) |
 
 The corporate seal in `public/brand/` is derived from the client-supplied
 `wikitech group logo.jpeg` by `scripts/extract-logo.py`.
